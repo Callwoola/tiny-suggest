@@ -2,35 +2,49 @@
 
 namespace Tiny;
 
+use Predis;
 use Callwoola\SearchSuggest\Suggest;
 
+/**
+ * Class Proccess
+ *
+ * @author Neo <call@woola.net>
+ * @package Tiny
+ */
 class Proccess extends Container
 {
+    protected  $config;
 
-    public function __construct()
+    /**
+     * Proccess constructor.
+     * @param $preparing
+     */
+    public function __construct($preparing)
     {
-        parent::__construct();
+        $this->config = $preparing;
 
+        parent::__construct();
         // processing search suggest
-        $this->http->on('request', 'proccessing');
+        $this->http->on('request', [$this, 'onProccessing']);
 
         $this->http->start();
     }
 
-
-    public function proccessing($request, $response)
+    /**
+     * @param $request
+     * @param $response
+     */
+    public function onProccessing($request, $response)
     {
-        $params = $request->get;
+        $word = $this->filter($request->get);
 
-        $word = $params['word'];
+        // return a empty result
+        if ($word) {
+            $response->end(json_encode([]));
+        }
 
         // config redis
-        $suggest = new Suggest(new Predis\Client([
-            'scheme'     => 'tcp',
-            'host'       => '127.0.0.1',
-            'port'       => 6379,
-            'persistent' => true,
-        ]));
+        $suggest = new Suggest(new Predis\Client($this->config['redis']));
 
         $results = $suggest->search($word);
 
@@ -41,9 +55,17 @@ class Proccess extends Container
         );
     }
 
-    public function filter()
+    /**
+     * @param $get
+     * @return bool|string
+     */
+    public function filter($get)
     {
+        if (!isset($get['word'])) {
+            return false;
+        }
 
+        return urldecode($get['word']);
     }
 }
 
