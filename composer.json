@@ -1,0 +1,24 @@
+{
+  "name": "quick-ss-server",
+  "description": "the search-suggest",
+  "require": {
+    "callwoola/search-suggest": "1.3"
+  },
+  "authors": [
+    {
+      "name": "Neo",
+      "email": "call@woola.net"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Tiny\\": "src/"
+    }
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.phpcomposer.com"
+    }
+  }
+}
