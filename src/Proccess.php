@@ -38,17 +38,17 @@ class Proccess extends Container
     {
         $word = $this->filter($request->get);
 
+        $response->header("Content-Type", "application/json");
+
         // return a empty result
-        if ($word) {
-            $response->end(json_encode([]));
+        if (!$word) {
+            return $response->end(json_encode([]));
         }
 
         // config redis
         $suggest = new Suggest(new Predis\Client($this->config['redis']));
 
         $results = $suggest->search($word);
-
-        $response->header("Content-Type", "application/json");
 
         $response->end(
             json_encode($results)
