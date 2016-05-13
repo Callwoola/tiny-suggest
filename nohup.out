@@ -1,0 +1,59 @@
+/usr/bin/env: php: No such file or directory
+Running daemon...
+[2016-05-13 09:27:28 @4473.0]	WARNING	swSocket_bind: bind(0.0.0.0:9501) failed. Error: Address already in use [98]
+PHP Fatal error:  swoole_server::__construct(): listen server port failed. in /home/vagrant/Code/tiny-suggest/src/Container.php on line 20
+PHP Stack trace:
+PHP   1. {main}() /home/vagrant/Code/tiny-suggest/suggest:0
+PHP   2. Symfony\Component\Console\Application->run() /home/vagrant/Code/tiny-suggest/suggest:30
+PHP   3. Symfony\Component\Console\Application->doRun() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Application.php:124
+PHP   4. Symfony\Component\Console\Application->doRunCommand() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Application.php:193
+PHP   5. Symfony\Component\Console\Command\Command->run() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Application.php:889
+PHP   6. Tiny\Command\Server->execute() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:253
+PHP   7. Tiny\Command\Server->fire() /home/vagrant/Code/tiny-suggest/src/Command/Command.php:23
+PHP   8. Tiny\Proccess->__construct() /home/vagrant/Code/tiny-suggest/src/Command/Server.php:42
+PHP   9. Tiny\Container->__construct() /home/vagrant/Code/tiny-suggest/src/Proccess.php:31
+PHP  10. swoole_server->__construct() /home/vagrant/Code/tiny-suggest/src/Container.php:20
+
+Fatal error: swoole_server::__construct(): listen server port failed. in /home/vagrant/Code/tiny-suggest/src/Container.php on line 20
+
+Call Stack:
+    0.2027     355648   1. {main}() /home/vagrant/Code/tiny-suggest/suggest:0
+    0.2663    1191904   2. Symfony\Component\Console\Application->run() /home/vagrant/Code/tiny-suggest/suggest:30
+    0.2916    1395280   3. Symfony\Component\Console\Application->doRun() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Application.php:124
+    0.2916    1395280   4. Symfony\Component\Console\Application->doRunCommand() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Application.php:193
+    0.2916    1395280   5. Symfony\Component\Console\Command\Command->run() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Application.php:889
+    0.2917    1396872   6. Tiny\Command\Server->execute() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:253
+    0.2917    1397568   7. Tiny\Command\Server->fire() /home/vagrant/Code/tiny-suggest/src/Command/Command.php:23
+    0.2934    1407816   8. Tiny\Proccess->__construct() /home/vagrant/Code/tiny-suggest/src/Command/Server.php:42
+    0.2934    1407816   9. Tiny\Container->__construct() /home/vagrant/Code/tiny-suggest/src/Proccess.php:31
+    0.2934    1407872  10. swoole_server->__construct() /home/vagrant/Code/tiny-suggest/src/Container.php:20
+
+Running daemon...
+[2016-05-13 09:28:27 @4475.0]	WARNING	swSocket_bind: bind(0.0.0.0:9501) failed. Error: Address already in use [98]
+PHP Fatal error:  swoole_server::__construct(): listen server port failed. in /home/vagrant/Code/tiny-suggest/src/Container.php on line 20
+PHP Stack trace:
+PHP   1. {main}() /home/vagrant/Code/tiny-suggest/suggest:0
+PHP   2. Symfony\Component\Console\Application->run() /home/vagrant/Code/tiny-suggest/suggest:30
+PHP   3. Symfony\Component\Console\Application->doRun() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Application.php:124
+PHP   4. Symfony\Component\Console\Application->doRunCommand() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Application.php:193
+PHP   5. Symfony\Component\Console\Command\Command->run() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Application.php:889
+PHP   6. Tiny\Command\Server->execute() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:253
+PHP   7. Tiny\Command\Server->fire() /home/vagrant/Code/tiny-suggest/src/Command/Command.php:23
+PHP   8. Tiny\Proccess->__construct() /home/vagrant/Code/tiny-suggest/src/Command/Server.php:42
+PHP   9. Tiny\Container->__construct() /home/vagrant/Code/tiny-suggest/src/Proccess.php:31
+PHP  10. swoole_server->__construct() /home/vagrant/Code/tiny-suggest/src/Container.php:20
+
+Fatal error: swoole_server::__construct(): listen server port failed. in /home/vagrant/Code/tiny-suggest/src/Container.php on line 20
+
+Call Stack:
+    0.2026     355648   1. {main}() /home/vagrant/Code/tiny-suggest/suggest:0
+    0.2677    1191920   2. Symfony\Component\Console\Application->run() /home/vagrant/Code/tiny-suggest/suggest:30
+    0.2944    1395296   3. Symfony\Component\Console\Application->doRun() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Application.php:124
+    0.2945    1395296   4. Symfony\Component\Console\Application->doRunCommand() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Application.php:193
+    0.2945    1395296   5. Symfony\Component\Console\Command\Command->run() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Application.php:889
+    0.2946    1396888   6. Tiny\Command\Server->execute() /home/vagrant/Code/tiny-suggest/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:253
+    0.2946    1397584   7. Tiny\Command\Server->fire() /home/vagrant/Code/tiny-suggest/src/Command/Command.php:23
+    0.2968    1407832   8. Tiny\Proccess->__construct() /home/vagrant/Code/tiny-suggest/src/Command/Server.php:42
+    0.2968    1407832   9. Tiny\Container->__construct() /home/vagrant/Code/tiny-suggest/src/Proccess.php:31
+    0.2968    1407888  10. swoole_server->__construct() /home/vagrant/Code/tiny-suggest/src/Container.php:20
+

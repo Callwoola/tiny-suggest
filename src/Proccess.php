@@ -15,6 +15,11 @@ class Proccess extends Container
 {
     protected  $config;
 
+    protected $headers = [
+        "Access-Control-Allow-Origin" => "*",
+        "Content-Type"=> "application/json",
+    ];
+
     /**
      * Proccess constructor.
      * @param $preparing
@@ -31,6 +36,8 @@ class Proccess extends Container
     }
 
     /**
+     * 处理请求
+     *
      * @param $request
      * @param $response
      */
@@ -38,7 +45,9 @@ class Proccess extends Container
     {
         $word = $this->filter($request->get);
 
-        $response->header("Content-Type", "application/json");
+        foreach ($this->headers as $name => $value) {
+            $response->header($name, $value);
+        }
 
         // return a empty result
         if (!$word) {
