@@ -21,17 +21,18 @@ class Stop extends SymfonyCommand
             ->setDescription('stop suggest processing server');
     }
 
-    /**
-     * Execute the command.
-     *
-     * @return void
-     */
     protected function fire()
     {
         $this->output->writeln('<info>stop</info>');
 
-        //$proccess = new Proccess($this->preparing);
+        $process = $this->process('kill -9 $(ps -aux |grep "suggest"|awk \'{print $2}\')');
 
-        //return $proccess;
+        $process->run();
+
+        // executes after the command finishes
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
+
     }
 }

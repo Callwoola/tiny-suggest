@@ -17,7 +17,7 @@ class Proccess extends Container
 
     protected $headers = [
         "Access-Control-Allow-Origin" => "*",
-        "Content-Type"=> "application/json",
+        "Content-Type"                => "application/json",
     ];
 
     /**
@@ -43,7 +43,7 @@ class Proccess extends Container
      */
     public function onProccessing($request, $response)
     {
-        $word = $this->filter($request->get);
+        $word = $this->filter(isset($request->get) ? $request->get : '');
 
         foreach ($this->headers as $name => $value) {
             $response->header($name, $value);

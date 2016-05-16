@@ -22,20 +22,17 @@ class Start extends SymfonyCommand
             ->setDescription('Start a suggest processing server');
     }
 
+    /**
+     * @return string
+     */
     protected function fire()
     {
-        // start shell : nohup php http.php > log.txt &
-        $this->output->writeln('<info>Starting...</info>');
+        $this->output->writeln('<info>ting-search Starting...</info>');
 
-        $process = $this->process('nohup php suggest server & >out.log');
+        $pid = shell_exec('php suggest server > /dev/null &');
 
-        $process->run();
+        $this->output->writeln('<info>SUCCESS</info>');
 
-        // executes after the command finishes
-        if (!$process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
-
-        echo $process->getOutput();
+        return $pid;
     }
 }
