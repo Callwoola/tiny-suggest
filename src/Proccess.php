@@ -13,6 +13,8 @@ use Callwoola\SearchSuggest\Suggest;
  */
 class Proccess extends Container
 {
+    const DEFAULT_TYPE = 'default';
+
     protected $config;
 
     protected $headers = [
@@ -76,7 +78,9 @@ class Proccess extends Container
 
         return [
             urldecode($get['word']),
-            urldecode($get['type']),
+            urldecode(
+                (isset($get['type']) AND !empty($get['type'])) ? $get['type'] : self::DEFAULT_TYPE
+            ),
         ];
     }
 }

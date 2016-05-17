@@ -3,5 +3,7 @@
 
 > install swoole
 
+> add to bashrc
+
 after then:
-> php http.php
+> sudo tiny-suggest start

@@ -29,7 +29,7 @@ class Start extends SymfonyCommand
     {
         $this->output->writeln('<info>tiny-search Starting...</info>');
 
-        $pid = shell_exec('tiny-suggest server > /dev/null &');
+        $pid = shell_exec('sudo tiny-suggest server > /dev/null &');
 
         $this->output->writeln('<info>SUCCESS</info>');
 

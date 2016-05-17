@@ -25,7 +25,7 @@ class Stop extends SymfonyCommand
     {
         $this->output->writeln('<info>stop</info>');
 
-        $process = $this->process('kill -9 $(ps -aux |grep "tiny-suggest"|awk \'{print $2}\')');
+        $process = $this->process('sudo kill -9 $(ps -aux |grep "tiny-suggest"|awk \'{print $2}\')');
 
         $process->run();
 
