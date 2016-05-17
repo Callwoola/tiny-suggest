@@ -27,9 +27,9 @@ class Start extends SymfonyCommand
      */
     protected function fire()
     {
-        $this->output->writeln('<info>ting-search Starting...</info>');
+        $this->output->writeln('<info>tiny-search Starting...</info>');
 
-        $pid = shell_exec('php suggest server > /dev/null &');
+        $pid = shell_exec('tiny-suggest server > /dev/null &');
 
         $this->output->writeln('<info>SUCCESS</info>');
 

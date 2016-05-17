@@ -13,7 +13,7 @@ use Callwoola\SearchSuggest\Suggest;
  */
 class Proccess extends Container
 {
-    protected  $config;
+    protected $config;
 
     protected $headers = [
         "Access-Control-Allow-Origin" => "*",
@@ -43,7 +43,7 @@ class Proccess extends Container
      */
     public function onProccessing($request, $response)
     {
-        $word = $this->filter(isset($request->get) ? $request->get : '');
+        list($word, $type) = $this->filter(isset($request->get) ? $request->get : '');
 
         foreach ($this->headers as $name => $value) {
             $response->header($name, $value);
@@ -57,7 +57,7 @@ class Proccess extends Container
         // config redis
         $suggest = new Suggest(new Predis\Client($this->config['redis']));
 
-        $results = $suggest->search($word);
+        $results = $suggest->search($word, $type);
 
         $response->end(
             json_encode($results)
@@ -74,7 +74,10 @@ class Proccess extends Container
             return false;
         }
 
-        return urldecode($get['word']);
+        return [
+            urldecode($get['word']),
+            urldecode($get['type']),
+        ];
     }
 }
 
