@@ -20,6 +20,9 @@ $preparing = [
         'address' => "0.0.0.0",
         'port'    => 9501,
     ],
+    'suggest' => [
+        "cn_include_pinyin" => false
+    ]
 ];
 
 

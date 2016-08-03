@@ -62,8 +62,8 @@ class Proccess extends Container
             $config['database'] = $this->config['redis']['database'];
         }
 
-        if (isset($this->config['redis']['database'])) {
-            $config['database'] = $this->config['redis']['database'];
+        if (isset($this->config['suggest']['cn_include_pinyin'])) {
+            $config['cn_include_pinyin'] = $this->config['suggest']['cn_include_pinyin'];
         }
         
         // config redis
