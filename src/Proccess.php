@@ -56,8 +56,18 @@ class Proccess extends Container
             return $response->end(json_encode([]));
         }
 
+        $config = [];
+        
+        if (isset($this->config['redis']['database'])) {
+            $config['database'] = $this->config['redis']['database'];
+        }
+
+        if (isset($this->config['redis']['database'])) {
+            $config['database'] = $this->config['redis']['database'];
+        }
+        
         // config redis
-        $suggest = new Suggest(new Predis\Client($this->config['redis']));
+        $suggest = new Suggest(new Predis\Client($this->config['redis']), $config);
 
         $results = $suggest->search($word, $type);
 

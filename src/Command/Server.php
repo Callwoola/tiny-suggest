@@ -4,6 +4,8 @@ namespace Tiny\Command;
 
 use Tiny\Proccess;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 
 class Server extends SymfonyCommand

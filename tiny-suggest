@@ -14,6 +14,7 @@ $preparing = [
         'host'       => '127.0.0.1',
         'port'       => 6379,
         'persistent' => true,
+        'database'   => 15,
     ],
     'server' => [
         'address' => "0.0.0.0",
@@ -21,8 +22,26 @@ $preparing = [
     ],
 ];
 
+
+// there has start config
+$configFile = './config.json';
+if(file_exists($configFile)) {
+    $content = file_get_contents($configFile);
+
+    $preparing = json_decode($content, true);
+}
+
+
 // initialize server
 $app = new Symfony\Component\Console\Application('Tiny Suggest server', '0.1.0');
+
+// Before running check
+if (!extension_loaded('swoole'))
+{
+    echo 'Swoole lib has\'t installed' . "\n";
+    exit();
+}
+
 $app->add(new Tiny\Command\Start);
 $app->add(new Tiny\Command\Stop);
 $app->add(new Tiny\Command\Server($preparing));

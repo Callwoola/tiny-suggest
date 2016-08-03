@@ -3,7 +3,7 @@
   "description": "the tiny-suggest",
   "keywords": ["search", "suggest"],
   "require": {
-    "callwoola/search-suggest": "1.3.2",
+    "callwoola/search-suggest": "1.3.5",
     "symfony/process": "~2.3",
     "symfony/console": "~2.3"
   },
